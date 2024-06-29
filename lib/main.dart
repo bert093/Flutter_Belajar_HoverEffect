@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Colors.blue,
         appBar: AppBar(
           title: const Center(
-            // membuat widget Center dengan childnya text agar bisa posisi text di tengah
+            // membuat widget Center dengan childnya text, agar bisa posisi text di tengah
             child: Text('My First App'),
           ),
         ),
@@ -53,6 +53,7 @@ class SocialIcons extends StatefulWidget {
 }
 
 class _SocialIconsState extends State<SocialIcons> {
+  bool isHover = false; // variabel boolean untuk menentukan apakah mouse sudah berada di area widget atau tidak
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,14 +65,31 @@ class _SocialIconsState extends State<SocialIcons> {
         children: [
           Align(
             alignment: Alignment.bottomCenter,
-            child: AnimatedContainer(
-              height: 60,
-              width: 60, 
-              duration: Duration(milliseconds: 400),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
+            child: MouseRegion( // membuat widget MouseRegion untuk menentukan apakah mouse sudah berada di area widget atau tidak
+            onEnter: (event) {
+              setState(() {
+                isHover = true;
+              });
+            },
+            onExit: (event) {
+              setState(() {
+                isHover = false;
+              });
+            },
+              child: AnimatedContainer(
+                height: 60,
+                width: 60, 
+                duration: Duration(milliseconds: 400),
+                decoration: BoxDecoration(
+                  color: isHover ? widget.color:Colors.white, // jika isHover true maka warna backgroundnya berubah menjadi warna yang di tentukan
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Icon(
+                  widget.icon,
+                  size: 30,
+                  color: isHover ? Colors.white:widget.color // jika isHover true maka warna iconnya berubah menjadi warna putih
+                  ),
               ),
-              child: Icon(widget.icon, size: 30, color: Colors.white),
             ),
           )
         ],

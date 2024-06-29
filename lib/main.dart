@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -29,8 +31,9 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SocialIcons(
-                icon: fontAwesomeIcons.intagram, 
-                color: Colors.pink, text: text) // membuat widget SocialIcons dari class SocialIcons dibawah
+                icon: FontAwesomeIcons.instagram, 
+                color: Colors.pink, 
+                text: '') // membuat widget SocialIcons dari class SocialIcons dibawah
             ],
           ),
         ),

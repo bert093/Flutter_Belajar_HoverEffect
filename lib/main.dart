@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -31,9 +30,10 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SocialIcons(
-                icon: FontAwesomeIcons.instagram, 
-                color: Colors.pink, 
-                text: '') // membuat widget SocialIcons dari class SocialIcons dibawah
+                  icon: FontAwesomeIcons.instagram,
+                  color: Colors.black, // warna backgroundnya
+                  text: 'Instagram') // membuat widget SocialIcons dari class SocialIcons dibawah
+                  
             ],
           ),
         ),
@@ -66,29 +66,28 @@ class _SocialIconsState extends State<SocialIcons> {
           Align(
             alignment: Alignment.bottomCenter,
             child: MouseRegion( // membuat widget MouseRegion untuk menentukan apakah mouse sudah berada di area widget atau tidak
-            onEnter: (event) {
-              setState(() {
-                isHover = true;
-              });
-            },
-            onExit: (event) {
-              setState(() {
-                isHover = false;
-              });
-            },
+              onEnter: (event) {
+                setState(() {
+                  isHover = true;
+                });
+              },
+              onExit: (event) {
+                setState(() {
+                  isHover = false;
+                });
+              },
               child: AnimatedContainer(
                 height: 60,
-                width: 60, 
+                width: 60,
                 duration: Duration(milliseconds: 400),
                 decoration: BoxDecoration(
-                  color: isHover ? widget.color:Colors.white, // jika isHover true maka warna backgroundnya berubah menjadi warna yang di tentukan
+                  color: isHover ? widget.color: Colors.white, // jika isHover true maka warna backgroundnya berubah menjadi warna yang di tentukan
                   borderRadius: BorderRadius.circular(50),
                 ),
-                child: Icon(
-                  widget.icon,
-                  size: 30,
-                  color: isHover ? Colors.white:widget.color // jika isHover true maka warna iconnya berubah menjadi warna putih
-                  ),
+                child: Icon(widget.icon,
+                    size: 30,
+                    color: isHover ? Colors.white: widget.color // jika isHover true maka warna iconnya berubah menjadi warna putih
+                    ),
               ),
             ),
           )

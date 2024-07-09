@@ -32,8 +32,7 @@ class _MyAppState extends State<MyApp> {
               SocialIcons(
                   icon: FontAwesomeIcons.instagram,
                   color: Colors.black, // warna backgroundnya
-                  text: 'Instagram') // membuat widget SocialIcons dari class SocialIcons dibawah
-                  
+                  text: 'Instagram') // membuat widget SocialIcons dari class SocialIcons dibawah 
             ],
           ),
         ),
